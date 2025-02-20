@@ -188,7 +188,7 @@
             <div class="title">${parsed.title}</div>
         </a>
     </li>`
-            } else {
+            } else if (parsed.id > -1) {
                 blogList.innerHTML += `
     <li>
         <a href="?id=${parsed.id}">
