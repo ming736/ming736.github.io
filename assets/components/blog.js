@@ -180,7 +180,7 @@
         let blogListLegacy = document.getElementById("blog-list-legacy")
         posts.forEach((v) => {
             let parsed = parseName(v.name)
-            if (parsed.id < 0) {
+            if (parsed.id < 0 && new URLSearchParams(location.search).has("legacy")) {
                 blogListLegacy.innerHTML += `
     <li>
         <a href="?id=${parsed.id}">

@@ -18,11 +18,11 @@ const topbar = [
         type: "dropdown",
         text: "Projects",
         contents: [
-            {
+            /*{
                 type: "button",
                 text: "MingChat",
                 href: "/mingchat.html"
-            },
+            },*/ // not needed either
             {
                 type: "button",
                 text: "Windows 93 Docs",
@@ -45,11 +45,11 @@ const topbar = [
                 text: "Twitter",
                 href: "https://twitter.com/@ming736_"
             },*/ // i no longer use twitter so
-            {
+            /*{
                 type: "button",
                 text: "YouTube",
                 href: "https://youtube.com/@ming736_YT"
-            },
+            },*/ // not really needed i'd say
             {
                 type: "button",
                 text: "Bluesky",
