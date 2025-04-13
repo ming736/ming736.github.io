@@ -1,0 +1,9 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="verticalStripes" patternUnits="userSpaceOnUse" width="10" height="200" patternTransform="rotate(0)">
+      <rect width="8" height="200" x="0" fill="#777a7d" />
+      <rect width="2" height="200" x="8" fill="#686b6d" />
+    </pattern>
+  </defs>
+  <rect width="400" height="200" fill="url(#verticalStripes)" />
+</svg>
