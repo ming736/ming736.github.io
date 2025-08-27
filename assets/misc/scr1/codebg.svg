@@ -1,9 +1,9 @@
-<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <pattern id="verticalStripes" patternUnits="userSpaceOnUse" width="10" height="200" patternTransform="rotate(0)">
-      <rect width="8" height="200" x="0" fill="#777a7d" />
-      <rect width="2" height="200" x="8" fill="#686b6d" />
+    <pattern id="verticalStripes" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(0)">
+      <rect width="4" height="5" x="0" fill="#757b7d" />
+      <rect width="1" height="5" x="4" fill="#646a6c" />
     </pattern>
   </defs>
-  <rect width="400" height="200" fill="url(#verticalStripes)" />
+  <rect width="5" height="5" fill="url(#verticalStripes)" />
 </svg>
