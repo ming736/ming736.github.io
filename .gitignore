@@ -4,9 +4,5 @@ package.json
 node_modules
 package-lock.json
 tests
-blog_example.json
-# local posts
-_posts/-1000.2024-09-14T17_41.styles.md
-_posts/-1001.2024-09-14T15_01.testing.md
 # env
 .env
