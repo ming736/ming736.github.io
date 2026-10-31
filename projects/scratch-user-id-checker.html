@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>user id checker</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .warning {
+                color: darkgoldenrod;
+            }
+            .danger {
+                color: firebrick;
+            }
+            .success {
+                color: forestgreen;
+            }
+            .center {
+                text-align: center;
+            }
+            input[type="number"] {
+                margin-top: 8px;
+                padding: 8px 12px;
+                width: 25%;
+                max-width: 240px;
+                border-radius: 8px;
+                border: 1px solid gray;
+            }
+            input[type="submit"] {
+                margin-top: 8px;
+                padding: 8px 12px;
+                border-radius: 8px;
+                border: 1px solid gray;
+                background-color: rgb(239, 239, 239);
+            }
+            input[type="submit"]:hover {
+                background-color: rgb(215, 215, 215);;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <h1>user id checker</h1>
+            <h2>this checks whether or not a user id on Scratch exists.</h2>
+            <span class="warning">this only works on user ids between 1 and 2373773!</span>
+            <br>
+            <span class="warning" style="font-size: 0.75rem;">(except some ids near 2373773 will be falsely marked as not existing)</span>
+            <form id="form">
+                <input type="number" min="1" max="2373773" step="1" placeholder="User ID" name="id" id="id">
+                <input type="submit" value="Check!">
+                <div class="danger" id="msg">error</div>
+            </form>
+            <script>
+                let form = document.getElementById("form")
+                let id = document.getElementById("id")
+                let msg = document.getElementById("msg")
+                let params = new URLSearchParams(location.search)
+                function sep(val) {
+                    let str = val.toString()
+                    return `${str.slice(0, -4)||"0"}/${str.slice(-4).padStart(4, "0")}`
+                }
+                function go() {
+                    event.preventDefault()
+                    msg.innerText = ""
+                    msg.className = "danger"
+                    let url = `https://uploads.scratch.mit.edu/users/avatars/${sep(id.value)}.png`
+                    const params = new URLSearchParams(location.search);
+                    params.set("id", String(id.value));
+                    history.replaceState(null, "", `?${params.toString()}`);
+                    fetch(`https://cors.io/?url=${encodeURIComponent(url)}`).then(async (resp) => {
+                        if (resp.ok) {
+                            let res = await resp.json()
+                            if (res.headers.etag) {
+                                msg.className = "success"
+                                msg.innerText = "this user id exists!"
+                            } else {
+                                msg.innerText = "this user id does not exist!"
+                            }
+                        } else {
+                            msg.innerText = e
+                        }
+                    }).catch((e) => {
+                        msg.innerText = e
+                    })
+                    return false
+                }
+                form.onsubmit = go
+                if (params.has("id")) {
+                    let num = Number(params.get("id"))
+                    if (num && num >= 1 && num <= 2373773) {
+                        id.value = num
+                        form.dispatchEvent(new SubmitEvent("submit")) // why
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
