@@ -1,5 +1,3 @@
-# projects
-
 things i made that don't need their own repo go here
 
 ---
